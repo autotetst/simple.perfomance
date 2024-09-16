@@ -1,0 +1,7 @@
+__pycache__
+.idea
+*.db
+*.csv
+*.html
+perf.py
+*.har
