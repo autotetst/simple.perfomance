@@ -25,10 +25,15 @@ class LoadTest(HttpUser):
     password = None
 
     def __init__(self, *args, **kwargs):
-        pass
+        super().__init__(*args, **kwargs)
+        logging.info(f'Starting test')
+        
+        #В этом варианте авторизации педполгается, что нам известен токен, который будет использоваться в тесте
+        self.token = self.environment.parsed_options.access_token
+        self.header = auth.get_http_headers(self.token)
+        
         # Блок кода ниже включает авторизцию пользователя. Необходимо раскоментировать его
         # При необходимости поправить функцию Auth/auth.auth()
-        # super().__init__(*args, **kwargs)
         # self.login = self.environment.parsed_options.SuperLogin
         # self.password = self.environment.parsed_options.SuperPass
         # 
@@ -45,6 +50,7 @@ class LoadTest(HttpUser):
         # self.header = auth.get_http_headers(self.token)
         # logging.info(f'===== Auth user: {self.login} =====')
         # logging.info(f'Token received: {self.token}')
+
 
     @staticmethod
     def logging_response(response):

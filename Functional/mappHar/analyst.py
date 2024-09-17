@@ -57,7 +57,7 @@ def analystSingleHar(har):
     for i in templates["log"]["entries"]:
         if "request" in i.keys() and "method" in i["request"].keys() \
                 and i["request"]["method"] in ["GET", "POST", "PUT"] \
-                and "/api/v1" in str(i["request"]["url"]) \
+                and "/api" in str(i["request"]["url"]) \
                 and "wss:" not in str(i["request"]["url"]) \
                 and "icon.svg" not in str(i["request"]["url"]):
             item = {}
