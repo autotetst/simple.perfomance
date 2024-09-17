@@ -13,6 +13,8 @@ def _(parser):
     parser.add_argument("--SuperLogin", type=str, env_var="SuperLogin", default='')
     parser.add_argument("--SuperPass", type=str, env_var="SuperPass", default='')
     parser.add_argument("--ssl_check", type=bool, env_var="ssl_check", default=True)
+    parser.add_argument("--access_token", type=bool, env_var="ssl_check", default=True)
+
 
 class FlowException(Exception):
    pass
